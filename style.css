@@ -1,0 +1,33 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f2f2f2;
+  margin: 0;
+  padding: 0;
+}
+header {
+  background: #2c3e50;
+  color: white;
+  padding: 1em;
+  text-align: center;
+}
+#anuncios-container {
+  padding: 20px;
+}
+.anuncio {
+  background: white;
+  margin-bottom: 20px;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.anuncio img {
+  max-width: 100%;
+  border-radius: 5px;
+}
+.anuncio h3 {
+  margin-top: 10px;
+  color: #2c3e50;
+}
+.anuncio p {
+  margin: 5px 0;
+}
