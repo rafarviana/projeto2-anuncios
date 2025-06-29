@@ -1,33 +1,544 @@
+/* Variáveis para cores */
+:root {
+    --primary-color: #FF6F00; /* Mantém laranja para o header/footer */
+    --secondary-color: #00C853; /* Este já é um verde, podemos usá-lo */
+    --accent-color: #3F51B5;
+    --text-color: #333;
+    --gradient-blue-start: #007bff;
+    --gradient-blue-end: #00c6ff;
+    --gradient-grey-start: #f0f0f0;
+    --gradient-grey-end: #e0e0e0;
+
+    /* Novas variáveis para cores das redes sociais */
+    --whatsapp-color: #25D366;
+    --instagram-color-start: #fdf497; /* Usando cores do gradiente do Instagram */
+    --instagram-color-end: #285AEB;
+    --googlemaps-color: #4285F4;
+
+    /* Nova variável para a cor da mensagem de filtro - Agora PRETO */
+    --filter-message-color: #000000; /* Preto puro */
+
+    /* Nova variável para a cor dos botões principais - VERDE */
+    --main-button-color: #00C853; /* Usando o verde de --secondary-color */
+    --main-button-hover-color: #00963F; /* Um verde um pouco mais escuro para o hover */
+}
+
 body {
-  font-family: Arial, sans-serif;
-  background: #f2f2f2;
-  margin: 0;
-  padding: 0;
+    font-family: Arial, sans-serif;
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box;
+    background: linear-gradient(to right, var(--gradient-blue-start), var(--gradient-blue-end));
+    color: var(--text-color);
 }
+
 header {
-  background: #2c3e50;
-  color: white;
-  padding: 1em;
-  text-align: center;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Fixa o header (título do site) no topo */
+    position: sticky;
+    top: 0;
+    z-index: 100; /* Garante que fique acima de tudo */
+    /* Adicionado um ID para referenciar no JavaScript */
+    id: "main-header";
 }
-#anuncios-container {
-  padding: 20px;
+
+h1 {
+    color: white;
+    font-size: 2.5em;
+    margin: 0;
+    padding-bottom: 3px;
 }
-.anuncio {
-  background: white;
-  margin-bottom: 20px;
-  padding: 15px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+
+h2, h3 {
+    text-align: center;
+    margin-bottom: 20px;
 }
-.anuncio img {
-  max-width: 100%;
-  border-radius: 5px;
+
+/* Revertido para texto branco e fundo laranja */
+h2 {
+    font-size: 2em;
+    margin-top: 40px; /* Mantém a margem superior para o espaçamento entre seções */
+    color: white; /* Cor do texto branco */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3); /* Adiciona sombra de volta */
+    /* Estilo para fixar o título da seção no topo */
+    position: sticky;
+    /* top será ajustado via JavaScript para ser dinâmico */
+    z-index: 10; /* Garante que fique acima de outros elementos da seção, mas abaixo do header */
+    background: var(--primary-color); /* Fundo laranja */
+    padding-bottom: 10px; /* Adiciona um pouco de padding abaixo para não grudar no conteúdo */
+    padding-top: 20px; /* Mantém o padding superior consistente */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra para destacar */
+    line-height: 1.2; /* Adiciona um pouco de espaço na linha para evitar corte de texto */
 }
-.anuncio h3 {
-  margin-top: 10px;
-  color: #2c3e50;
+
+h3 {
+    color: var(--accent-color); /* Mantido azul para H3 */
+    font-size: 1.5em;
 }
-.anuncio p {
-  margin: 5px 0;
+
+/* Contêiner geral para centralizar e adicionar margens laterais */
+.section-content-wrapper {
+    max-width: 1200px; /* Limite a largura máxima */
+    margin: 0 auto; /* Centraliza o contêiner */
+    padding: 0 10px; /* 10px de margem nas laterais */
+    box-sizing: border-box; /* Garante que o padding não adicione largura extra */
+}
+
+section {
+    margin-bottom: 20px;
+    background: linear-gradient(to right, var(--gradient-blue-start), var(--gradient-blue-end));
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 0; 
+    max-width: 100%; 
+}
+
+/* Aumentar o espaçamento entre as imagens dos carrosséis */
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    will-change: transform;
+    gap: 10px; 
+}
+
+/* Contêiner do carrossel para gerenciar o overflow */
+.carousel-container {
+    overflow: hidden; /* Mova o overflow para o contêiner específico do carrossel */
+}
+
+.carousel-item {
+    box-sizing: border-box;
+    padding: 10px; 
+    text-align: center;
+    flex-shrink: 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    flex-grow: 1; 
+    display: flex; /* Adicionado para permitir alinhamento de itens internos */
+    flex-direction: column; /* Organiza conteúdo em coluna */
+    justify-content: space-between; /* Espaço entre título, descrição e botão */
+    border: 1px solid black; /* Adicionado: Borda preta de 1px */
+}
+
+.carousel-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border: 1px solid black; /* Adicionado: Borda preta de 1px para imagens */
+}
+
+/* Estilo para o botão "Mais Informações" (já laranja) */
+.more-info-btn {
+    display: inline-block;
+    background-color: var(--main-button-color); /* Usa o verde */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+    align-self: center; /* Centraliza o botão dentro do flex container */
+    width: fit-content; /* Ajusta a largura ao conteúdo */
+    border: 1px solid black; /* Adicionado: Borda preta de 1px */
+}
+
+.more-info-btn:hover {
+    background-color: var(--main-button-hover-color); /* Um tom um pouco mais escuro ao passar o mouse */
+}
+
+/* Estilo para o botão "Como Chegar" - AGORA LARANJA */
+.how-to-get-btn {
+    display: inline-block;
+    background-color: var(--main-button-color); /* Usando o verde principal */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+    align-self: center; /* Centraliza o botão dentro do flex container */
+    width: fit-content; /* Ajusta a largura ao conteúdo */
+    border: 1px solid black; /* Adicionado: Borda preta de 1px */
+}
+
+.how-to-get-btn:hover {
+    background-color: var(--main-button-hover-color); /* Um tom um pouco mais escuro ao passar o mouse */
+}
+
+.filters-section {
+    background: linear-gradient(to right, var(--gradient-blue-start), var(--gradient-blue-end));
+    /* Diminuir a altura da sessão de pesquisa em 15px */
+    padding-top: 5px; 
+    padding-bottom: 5px; 
+}
+/* Removido o color: white; daqui para usar a cor definida em h2 */
+
+
+.filters-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centraliza os itens de filtro */
+    gap: 20px;
+    margin-top: 10px; 
+    margin-bottom: 10px; 
+}
+
+.filter-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 1.1em;
+    color: white;
+}
+
+.filter-group select {
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: none;
+    font-size: 1em;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: var(--text-color);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    /* Aumenta a largura dos campos de pesquisa */
+    min-width: 180px; /* Largura mínima para acomodar as palavras */
+    width: auto; /* Permite que a largura se ajuste ao conteúdo ou ao min-width */
+    /* CENTRALIZA O TEXTO DENTRO DOS CAMPOS DE PESQUISA */
+    text-align: center;
+}
+
+/* Estilo para o botão de limpar filtro - AGORA LARANJA */
+.clear-filter-btn {
+    background-color: var(--main-button-color); /* Usando o verde principal */
+    color: white;
+    padding: 10px 20px;
+    border: 1px solid black; /* Alterado de 'border: none;' para borda preta de 1px */
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 25px; /* Alinha com os selects */
+}
+
+.clear-filter-btn:hover {
+    background-color: var(--main-button-hover-color); /* Um tom um pouco mais escuro ao passar o mouse */
+}
+
+.ads-section {
+    background: linear-gradient(to right, var(--gradient-blue-start), var(--gradient-blue-end));
+    /* AQUI: Adicionado scroll-margin-top para compensar o header fixo */
+    /* Isso é ajustado via JS para ser dinâmico */
+    scroll-margin-top: var(--header-height, 0px); /* Fallback para 0px */
+}
+/* Removido o color: white; daqui para usar a cor definida em h2 */
+
+
+/* Estilo para a mensagem do filtro */
+#filter-message {
+    text-align: center;
+    font-size: 1.2em;
+    color: var(--filter-message-color); /* Usando a nova variável de cor */
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-weight: bold;
+    text-shadow: none; /* Removendo a sombra para o preto */
+    padding: 5px 0; /* Adiciona um pequeno padding para espaçamento */
+}
+
+.ads-grid {
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 20px; 
+    justify-content: center; 
+}
+
+.ad-item {
+    border: 1px solid black; /* Alterado de rgba(255, 255, 255, 0.5) para preto */
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.9);
+    padding-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.ad-item h3 {
+    padding: 10px;
+    margin: 0;
+    text-align: center;
+    color: var(--accent-color);
+}
+
+.ad-item p {
+    padding: 0 15px;
+    font-size: 0.95em;
+    line-height: 1.5;
+    flex-grow: 1;
+    text-align: center;
+}
+
+.mini-carousel-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.mini-carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    will-change: transform;
+    gap: 3px; 
+}
+
+.mini-carousel-slide {
+    box-sizing: border-box;
+    min-width: 100%; 
+    flex-shrink: 0;
+}
+
+.mini-carousel-slide img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    border: 1px solid black; /* Adicionado: Borda preta de 1px para imagens do mini-carrossel */
+}
+
+.social-buttons {
+    display: flex;
+    justify-content: center;
+    /* AUMENTA O ESPAÇAMENTO ENTRE OS BOTÕES DOS MINI CARROSSÉIS */
+    gap: 15px; 
+    padding: 10px 15px;
+    margin-top: auto;
+}
+
+.social-buttons a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    font-size: 0.8em;
+    font-weight: bold;
+    transition: transform 0.2s ease;
+}
+
+.social-buttons a:hover {
+    transform: translateY(-3px);
+}
+
+/* Cores dos textos dos botões de redes sociais */
+.whatsapp-btn span { color: var(--whatsapp-color); }
+.instagram-btn span { 
+    /* Gradiente para o texto do Instagram */
+    background: linear-gradient(to right, #fdf497, #fd5949, #d6249f, #285AEB);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent; /* Fallback */
+ }
+.googlemaps-btn span { color: var(--googlemaps-color); }
+
+
+.social-buttons img {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 5px;
+    /* Deixa os ícones redondos */
+    border-radius: 50%; /* Faz o elemento ser um círculo perfeito */
+}
+
+/* Cores dos ícones baseadas nos nomes das classes */
+.whatsapp-btn img { background-color: var(--whatsapp-color); }
+.instagram-btn img { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); border-radius: 50%; } /* Ajustado para 50% */
+.googlemaps-btn img { background-color: var(--googlemaps-color); }
+
+footer {
+    background-color: var(--primary-color); /* Alterado para laranja do título */
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    display: flex; /* Adicionado para centralizar o botão do whatsapp */
+    flex-direction: column; /* Para empilhar o conteúdo */
+    align-items: center; /* Centraliza horizontalmente */
+    justify-content: center; /* Centraliza verticalmente se houver espaço */
+}
+
+footer p {
+    margin: 5px 0;
+    font-size: 0.9em;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Estilo para o botão fixo do WhatsApp */
+.whatsapp-footer-button {
+    background-color: var(--whatsapp-color);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 30px; /* Mais redondo */
+    text-decoration: none;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000; /* Acima de outros elementos */
+    transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+    margin-top: 15px; /* Espaçamento do texto do rodapé */
+    width: fit-content; /* Ajusta a largura ao conteúdo */
+}
+
+.whatsapp-footer-button:hover {
+    transform: scale(1.05);
+    background-color: #1DA851; /* Um tom ligeiramente mais escuro no hover */
+}
+
+.whatsapp-footer-button img {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+}
+
+/* --- Responsividade (Media Queries) --- */
+/* Removidas as media queries que definiam min-width dos carousel-item para centralizar no JS */
+
+/* Telas muito pequenas (até 374px, ex: iPhone SE, e 320px) */
+@media (max-width: 374px) {
+    h1 { font-size: 1.8em; }
+    /* Adjusted for encostado */
+    h2 { font-size: 1.5em; padding-top: 10px; margin-top: 10px; } 
+    
+    #destaques { margin-bottom: 0; } /* Encosta carousel na seção de filtro */
+    .filters-section { margin-top: 0; } /* Encosta seção de filtro no carousel acima */
+
+    h3 { font-size: 1.2em; }
+    .carousel-item { padding: 10px; } 
+    
+    /* Filter section layout for single line */
+    .filters-content { 
+        flex-direction: row; 
+        flex-wrap: wrap; 
+        justify-content: center; 
+        gap: 10px; 
+    } 
+    .filter-group {
+        flex-basis: calc(50% - 5px); /* Adjusted for gap of 10px, so 5px each side */
+    }
+    .filter-group label {
+        font-size: 1em; /* Smaller font for labels */
+    }
+    .filter-group select { 
+        width: 100%; 
+        min-width: unset; /* Remove previous min-width */
+        max-width: 170px; /* Aumentado para exibir "Todos os bairros" e "Todos os serviços" */
+        padding: 8px 10px; /* Slightly smaller padding */
+        font-size: 0.9em; /* Smaller font for select */
+    }
+    .clear-filter-btn { 
+        margin-top: 0; /* Align with selects */
+        width: 100%; 
+        max-width: 170px; /* Ajustado para corresponder à largura dos selects */
+        padding: 8px 10px; /* Smaller padding */
+        font-size: 0.9em; /* Smaller font */
+    }
+
+    /* Aumentar o tamanho dos botões de redes sociais em telas pequenas */
+    .social-buttons img { width: 35px; height: 35px; } 
+
+    .whatsapp-footer-button { padding: 8px 12px; font-size: 0.9em; }
+    .whatsapp-footer-button img { width: 20px; height: 20px; }
+}
+
+/* Telas pequenas (375px a 424px, ex: iPhone 6/7/8) */
+@media (min-width: 375px) and (max-width: 424px) {
+    h1 { font-size: 2em; }
+    h2 { font-size: 1.7em; padding-top: 20px; } 
+    .carousel-item { padding: 10px; }
+    .filters-content { 
+        flex-direction: row; 
+        flex-wrap: wrap; 
+        justify-content: center; 
+        gap: 10px; 
+    } 
+    .filter-group {
+        flex-basis: calc(50% - 5px); /* Adjusted for gap of 10px, so 5px each side */
+    }
+    .filter-group select { 
+        width: 100%; 
+        min-width: unset; 
+        max-width: 160px; 
+        padding: 9px 12px;
+        font-size: 0.95em;
+    }
+    .clear-filter-btn {
+        margin-top: 0;
+        width: 100%;
+        max-width: 160px;
+        padding: 9px 12px;
+        font-size: 0.95em;
+    }
+    .social-buttons img { width: 28px; height: 28px; }
+}
+
+/* Telas pequenas-médias (425px a 767px) */
+@media (min-width: 425px) and (max-width: 767px) {
+    h1 { font-size: 2.2em; }
+    h2 { font-size: 1.8em; padding-top: 20px; } 
+    .carousel-item { padding: 10px; }
+    .ads-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+    .filter-group select { min-width: 260px; } 
+    .social-buttons img { width: 30px; height: 30px; }
+}
+
+/* Telas médias (768px a 1023px, ex: iPad) */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .ads-grid { grid-template-columns: repeat(2, 1fr); }
+    h2 { padding-top: 20px; } 
+    .filter-group select { min-width: 200px; } 
+}
+
+/* Telas grandes (1024px a 1439px, ex: Laptops) */
+@media (min-width: 1024px) and (max-width: 1439px) {
+    .ads-grid { grid-template-columns: repeat(3, 1fr); }
+    h2 { padding-top: 20px; } 
+    .filter-group select { min-width: 200px; } 
+}
+
+/* Telas muito grandes (1440px a 2559px, ex: Monitores grandes) */
+@media (min-width: 1440px) and (max-width: 2559px) {
+    .ads-grid { grid-template-columns: repeat(4, 1fr); }
+    h2 { padding-top: 20px; } 
+    .filter-group select { min-width: 200px; } 
+}
+
+/* Telas ultra grandes (2560px e acima) */
+@media (min-width: 2560px) {
+    .ads-grid { grid-template-columns: repeat(5, 1fr); }
+    h2 { padding-top: 20px; } 
+    .filter-group select { min-width: 200px; } 
 }

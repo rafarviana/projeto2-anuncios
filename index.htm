@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estância Turística de Paraibuna</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header id="main-header">
+        <h1>Estância Turística de Paraibuna</h1>
+    </header>
+
+    <main>
+        <section class="carousel-section" id="destaques">
+            <h2>Destaques de Paraibuna</h2>
+            <div class="section-content-wrapper"> 
+                <div class="carousel-container">
+                    <div class="carousel-track" id="destaques-track">
+                        <div class="carousel-item">
+                            <img src="chaleaguia.jpeg" alt="Destaque 1">
+                            <h3>Chalé Aguia</h3>
+                            <p>Chalé romantico com vista para as montanhas.</p>
+                            <a href="https://wa.me/5511930080331" target="_blank" class="more-info-btn">Mais Informações</a>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="deposito3.jpeg" alt="Destaque 2">
+                            <h3>Deposito Construção Martelo</h3>
+                            <p>Tudo para sua obra em paraibuna.</p>
+                            <a href="https://wa.me/5512912345678" target="_blank" class="more-info-btn">Mais Informações</a>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="casa.jpeg" alt="Destaque 3">
+                            <h3>Casa de campo</h3>
+                            <p>Casa de campo para descanço.</p>
+                            <a href="https://wa.me/5512912345678" target="_blank" class="more-info-btn">Mais Informações</a>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="farmacia.jpeg" alt="Destaque+4">
+                            <h3>Farmacia Paraibuna</h3>
+                            <p>Remedios baratos é aqui.</p>
+                            <a href="https://wa.me/5512912345678" target="_blank" class="more-info-btn">Mais Informações</a>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </section>
+
+        <section class="filters-section">
+            <h2>Encontre o que procura!</h2>
+            <div class="section-content-wrapper"> 
+                <div class="filters-content"> 
+                    <div class="filter-group">
+                        <label for="bairro-filter">Filtrar por Bairro:</label>
+                        <select id="bairro-filter">
+                            <option value="todos">Selecione um Bairro</option> 
+                            </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="servico-filter">Filtrar por Serviço:</label>
+                        <select id="servico-filter">
+                            <option value="todos">Selecione um Serviço</option> 
+                            </select>
+                    </div>
+                    <button class="clear-filter-btn" id="clear-filter-btn">Limpar Filtros</button>
+                </div>
+            </div> 
+        </section>
+
+        <section class="ads-section" id="ads-section"> <h2>Comércios e Serviços</h2>
+            <div id="filter-message"></div> 
+            <div class="section-content-wrapper"> 
+                <div class="ads-grid">
+                    <div class="ad-item" data-bairro="campo redondo" data-servico="Pousadas">
+                        <h3>Chalé Aguia</h3>
+                        <div class="mini-carousel-container">
+                            <div class="mini-carousel-track">
+                                <div class="mini-carousel-slide"><img src="chaleaguia.jpeg" alt="pousada chalé aguia"></div>
+                                <div class="mini-carousel-slide"><img src="bar1.jpeg" alt="Pousada chalé aguia"></div>
+                               
+                            </div>
+                        </div>
+                        <p>Chalé romantico com vista para as montanhas.</p>
+                        <div class="social-buttons">
+                            <a href="https://wa.me/5511930080331" target="_blank" class="whatsapp-btn">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/1200px-WhatsApp.svg.png" alt="WhatsApp">
+                                <span>WhatsApp</span>
+                            </a>
+                            <a href="https://instagram.com/renaissance.chales" target="_blank" class="instagram-btn">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/1024px-Instagram_logo_2016.svg.png" alt="Instagram">
+                                <span>Instagram</span>
+                            </a>
+                            <a href="https://maps.app.goo.gl/dh6Ki7bWK6wwZjPR6" target="_blank" class="googlemaps-btn">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Maps_icon_%282020%29.svg/1200px-Maps_icon_%282020%29.svg.png" alt="Google Maps">
+                                <span>Google Maps</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ad-item" data-bairro="Vila Amélia" data-servico="hospedagem">
+                        <h3>Pousada Aconchego</h3>
+                        <div class="mini-carousel-container">
+                            <div class="mini-carousel-track">
+                                <div class="mini-carousel-slide"><img src="bar2.jpg" alt="Pousada Aconchego Foto 1"></div>
+                                
+                            </div>
+                        </div>
+                        <p>Hospedagem confortável e com vista privilegiada.</p>
+                        <div class="social-buttons">
+                            <a href="https://wa.me/5512912345678" target="_blank" class="whatsapp-btn">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/1200px-WhatsApp.svg.png" alt="WhatsApp">
+                                <span>WhatsApp</span>
+                            </a>
+                            <a href="https://instagram.com/seuinstagram" target="_blank" class="instagram-btn">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/1024px-Instagram_logo_2016.svg.png" alt="Instagram">
+                                <span>Instagram</span>
+                            </a>
+                            <a href="https://maps.app.goo.gl/seulocalizacao" target="_blank" class="googlemaps-btn">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Maps_icon_%282020%29.svg/1200px-Maps_icon_%282020%29.svg.png" alt="Google Maps">
+                                <span>Google Maps</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ad-item" data-bairro="centro" data-servico="loja">
+                        <h3>Loja de Artesanato Local</h3>
+                        <div class="mini-carousel-container">
+                            <div class="mini-carousel-track">
+                                <div class="mini-carousel-slide"><img src="https://via.placeholder.com/300x200/8B4513/FFFFFF?text=Loja+1.1" alt="Loja 1 Foto 1"></div>
+                                <div class="mini-carousel-slide"><img src="https://via.placeholder.com/300x200/D2B48C/000000?text=Loja+1.2" alt="Loja 1 Foto 2"></div>
+                            </div>
+                        </div>
+                        <p>Produtos artesanais únicos da região. Ótimas lembranças!</p>
+                        <div class="social-buttons">
+                            <a href="https://wa.me/5512912345678" target="_blank" class="whatsapp-btn">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/1200px-WhatsApp.svg.png" alt="WhatsApp">
+                                <span>WhatsApp</span>
+                            </a>
+                            <a href="https://instagram.com/seuinstagram" target="_blank" class="instagram-btn">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/1024px-Instagram_logo_2016.svg.png" alt="Instagram">
+                                <span>Instagram</span>
+                            </a>
+                            <a href="https://maps.app.goo.gl/seulocalizacao" target="_blank" class="googlemaps-btn">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Maps_icon_%282020%29.svg/1200px-Maps_icon_%282020%29.svg.png" alt="Google Maps">
+                                <span>Google Maps</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ad-item" data-bairro="comerciarios" data-servico="lazer">
+                        <h3>Parque de Aventuras</h3>
+                        <div class="mini-carousel-container">
+                            <div class="mini-carousel-track">
+                                <div class="mini-carousel-slide"><img src="img/anuncie_aqui.jpg" alt="Parque 1 Foto 1"></div>
+                                <div class="mini-carousel-slide"><img src="img/anuncie_aqui.jpg" alt="Parque 1 Foto 2"></div>
+                            </div>
+                        </div>
+                        <p>Tirolesa, arvorismo e muita diversão para toda a família!</p>
+                        <div class="social-buttons">
+                            <a href="https://wa.me/5512912345678" target="_blank" class="whatsapp-btn">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/1200px-WhatsApp.svg.png" alt="WhatsApp">
+                                <span>WhatsApp</span>
+                            </a>
+                            <a href="https://instagram.com/seuinstagram" target="_blank" class="instagram-btn">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/1024px-Instagram_logo_2016.svg.png" alt="Instagram">
+                                <span>Instagram</span>
+                            </a>
+                            <a href="https://maps.app.goo.gl/seulocalizacao" target="_blank" class="googlemaps-btn">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Maps_icon_%282020%29.svg/1200px-Maps_icon_%282020%29.svg.png" alt="Google Maps">
+                                <span>Google Maps</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </section>
+
+        <section class="carousel-section" id="pontos-turisticos">
+            <h2>Pontos Turísticos</h2>
+            <div class="section-content-wrapper"> 
+                <div class="carousel-container">
+                    <div class="carousel-track" id="pontos-turisticos-track">
+                        <div class="carousel-item">
+                            <img src="img/anuncie_aqui.jpg" alt="Ponto Turístico 1">
+                            <h3>Nome do Ponto Turístico 1</h3>
+                            <p>Descrição do ponto turístico e o que ele oferece.</p>
+                            <a href="https://maps.app.goo.gl/seulocalizacao" target="_blank" class="how-to-get-btn">Como Chegar</a>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="logo.png" alt="Ponto Turístico 2">
+                            <h3>Nome do Ponto Turístico 2</h3>
+                            <p>Descrição do ponto turístico e o que ele oferece.</p>
+                            <a href="https://maps.app.goo.gl/seulocalizacao" target="_blank" class="how-to-get-btn">Como Chegar</a>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="https://via.placeholder.com/600x400/A0FF33/FFFFFF?text=Ponto+Turistico+3" alt="Ponto Turístico 3">
+                            <p>Descrição do ponto turístico e o que ele oferece.</p>
+                            <a href="https://maps.app.goo.gl/seulocalizacao" target="_blank" class="how-to-get-btn">Como Chegar</a>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="https://via.placeholder.com/600x400/33A0FF/FFFFFF?text=Ponto+Turistico+4" alt="Ponto Turístico 4">
+                            <h3>Nome do Ponto Turístico 4</h3>
+                            <p>Descrição do ponto turístico e o que ele oferece.</p>
+                            <a href="https://maps.app.goo.gl/seulocalizacao" target="_blank" class="how-to-get-btn">Como Chegar</a>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Estância Turística de Paraibuna. Todos os direitos reservados.</p>
+        <p>Desenvolvido por [Seu Nome/Empresa].</p>
+        <p>Contato: <a href="mailto:contato@paraibuna.tur.br">contato@paraibuna.tur.br</a></p>
+        <a href="https://wa.me/5512912345678" target="_blank" class="whatsapp-footer-button">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/1200px-WhatsApp.svg.png" alt="WhatsApp">
+            WhatsApp
+        </a>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
